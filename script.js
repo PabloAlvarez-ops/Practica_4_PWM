@@ -218,14 +218,30 @@ const resetContr = () => {
 const matchEvent = (ev, sel) => ev.target.matches(sel);
 const myId = (ev) => Number(ev.target.dataset.myId);
 
+// document.addEventListener('click', ev)
+// Está asociando el evento "click" al objeto ev.
+// Esta función se utiliza para asociar eventos a objetos.
+
 document.addEventListener('click', ev => {
   if (matchEvent(ev, '.index')) indexContr();
   else if (matchEvent(ev, '.edit')) editContr(myId(ev));
   else if (matchEvent(ev, '.update')) updateContr(myId(ev));
   // Completar añadiendo los controladores que faltan
-  else if (matchEvent(ev, ".show")) showContr(myId(ev));
+  else if (matchEvent(ev, ".show")) showContr(myId(ev)); //
+  else if (matchEvent(ev, ".new")) newContr(myId(ev));
+  else if (matchEvent(ev, ".create")) createContr(myId(ev));
+  else if (matchEvent(ev, ".delete")) deleteContr(myId(ev));
+  else if (matchEvent(ev, ".reset")) resetContr(myId(ev));
 })
 
+// Explicación de las iteraciones:
 
-// Inicialización        
+// Asocia el objeto "ev" con la clase index y llama al controlador indexContr().
+// Si "ev" no está asociado a la clase index, asocialo a la clase edit y llama al controlador editContr(myId(ev)) pasándole la posición de la película que queremos editar.
+// Si "ev" no está asociado a la clase edit, asocialo a la clase update y llama al controlador updateContr(myId(ev)) pasándole la posición de la película que queremos actualizar.
+
+// Y así sucesivamente ...
+
+// Inicialización      
+//Inicializamos el controlador principal.
 document.addEventListener('DOMContentLoaded', indexContr);
