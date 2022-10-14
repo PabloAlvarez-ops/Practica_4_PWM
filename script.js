@@ -10,7 +10,17 @@ let mis_peliculas_iniciales = [
 localStorage.mis_peliculas = localStorage.mis_peliculas || JSON.stringify(mis_peliculas_iniciales);
 
 // VISTAS
+
 function indexView(peliculas) {
+  //Vista principal
+
+  //Router: Botón 'editar' de cada película.
+
+  //Router: Añadimos el botón 'Ver' y la clase show.
+  //Router: Añadimos el botón 'Añadir' y la clase new.
+  //Router: Añadimos el botón 'Borrar' y la clase delete.
+  //Router: Añadimos el botón 'Reset' y la clase reset.
+  
   let i = 0;
   let view = "";
 
@@ -25,9 +35,14 @@ function indexView(peliculas) {
                    </div>
                    <div class="actions">
                         <!--Insertar aquí botones de "Show" y "Delete"-->
-                       <button class="edit" data-my-id="${i}">editar</button>
-                       <button class="show" data-my-id="${i}">Ver</button>
-                       <button class="delete" data-my-id="${i}">Borrar</button>
+                        
+                        <button class="show" data-my-id="${i}">Ver</button>
+                        <button class="edit" data-my-id="${i}">Editar</button>
+                        <button class="delete" data-my-id="${i}">Borrar</button>
+                        <button class="new" data-my-id="${i}">Añadir</button>
+                        <button class="reset" data-my-id="${i}">Reset</button>
+                        
+                        
                     </div>
                 </div>\n`;
     i = i + 1;
@@ -41,6 +56,10 @@ function indexView(peliculas) {
 }
 
 function editView(i, pelicula) {
+  
+  //Router: Botón volver de la vista editView()
+  //Router: Botón actualizar de la vista editView()
+  
   return `<h2>Editar Película </h2>
                 <div class="field">
                 Título <br>
@@ -61,6 +80,7 @@ function editView(i, pelicula) {
                     <button class="update" data-my-id="${i}">
                         Actualizar
                     </button>
+                    
                     <button class="index">
                         Volver
                     </button>
@@ -70,6 +90,8 @@ function editView(i, pelicula) {
 const showView = (pelicula) => {
   // Recibe como argumento el objeto que contiene la información película y con ello, debemos acceder a dos de sus atributos: titulo y director.
 
+  //Router: Botón volver de la vista showView()
+
   return `
              <p>
 
@@ -78,12 +100,17 @@ const showView = (pelicula) => {
              
              </p>
              <div class="actions">
-                <button class="index">Volver</button>
+                <button class="index">Volver</button> 
              </div>`;
 }
 
 const newView = () => {
   // Vista que permite al usuario introducir una nueva película.
+  
+  //Router: Botón volver de la vista newView()
+
+  //Router: Añadimos el botón 'Crear' y la clase create.
+  
 
   return `<h2>Crear Película</h2>
                 
@@ -103,11 +130,12 @@ const newView = () => {
                 </div>
 
 
-
-
-
                 <div class="actions">
+                
                     <button class="index">Volver</button>
+
+                    <button class="create">Crear</button>
+                    
                 </div>`;
 }
 
