@@ -39,10 +39,7 @@ function indexView(peliculas) {
                         <button class="show" data-my-id="${i}">Ver</button>
                         <button class="edit" data-my-id="${i}">Editar</button>
                         <button class="delete" data-my-id="${i}">Borrar</button>
-                        <button class="new" data-my-id="${i}">Añadir</button>
-                        <button class="reset" data-my-id="${i}">Reset</button>
-                        
-                        
+                      
                     </div>
                 </div>\n`;
     i = i + 1;
@@ -50,6 +47,8 @@ function indexView(peliculas) {
 
   view += `<div class="actions">
                         <!--Insertar aquí botones de "Añadir" y "Reset"-->
+                        <button class="new" data-my-id="${i}">Añadir</button>
+                        <button class="reset" data-my-id="${i}">Reset</button>
                     </div>`;
 
   return view;
